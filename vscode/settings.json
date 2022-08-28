@@ -1,0 +1,27 @@
+{
+    "editor.fontFamily": "'CaskaydiaCove Nerd Font', Consolas, 'Courier New', monospace",
+    "workbench.colorTheme": "Night Owl (No Italics)",
+    "editor.formatOnSave": true,
+    "window.zoomLevel": 0,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },    
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[csharp]": {
+    "editor.codeLens": false
+    },
+    "files.hotExit": "onExitAndWindowClose",
+    "editor.suggestSelection": "first",
+    "workbench.tree.indent": 20,
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.compactFolders": false,
+    "security.workspace.trust.untrustedFiles": "open"
+}
