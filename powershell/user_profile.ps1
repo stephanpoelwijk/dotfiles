@@ -41,7 +41,6 @@ if (Test-Path -Path $scriptsRoot) {
     $env:path += ";$($scriptsRoot)"
 }
 
-
 if (Test-Path -Path "$($homeFolder)/.nuget/plugins/netcore/CredentialProvider.Microsoft") {
     Write-Host ".NET Credential Provider"
 }
@@ -203,6 +202,10 @@ function uuidgen() {
 # winget install -e --id OpenJS.NodeJS.LTS
 # winget install -e --id Microsoft.VisualStudioCode
 # winget install -e --id Microsoft.VisualStudio.2022.Enterprise
+# winget install -e --id Pulumi.Pulumi
+# winget install -e --id Mirantis.Lens
+# winget install -e --id Yarn.Yarn
+# winget install -e --id Docker.DockerDesktop
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
@@ -215,6 +218,7 @@ function uuidgen() {
 # code --install-extension redhat.vscode-yaml
 # code --install-extension sdras.night-owl
 # code --install-extension johnsoncodehk.volar
+# code --install-extension WallabyJs.quokka-vscode
 
 # Add Az Devops Artifact feed
 # - Generate a PAT
@@ -228,7 +232,9 @@ function uuidgen() {
 # Git Config
 # - Automatically set the upstream:
 #   git config --global push.default current
-
+# - Commit info
+#   git config --global user.name "Your Name"
+#   git config --global user.email you@example.com
 
 # Set Azure Subscription
 # - az login
