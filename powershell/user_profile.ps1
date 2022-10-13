@@ -206,6 +206,8 @@ function uuidgen() {
 # winget install -e --id Mirantis.Lens
 # winget install -e --id Yarn.Yarn
 # winget install -e --id Docker.DockerDesktop
+# winget install -e --id Microsoft.AzureStorageExplorer
+# winget install -e --id Microsoft.SQLServerManagementStudio
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
