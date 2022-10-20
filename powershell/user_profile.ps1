@@ -23,7 +23,7 @@ if (Test-Path -Path $gitBinRoot) {
 
 if (Test-Path -Path "$env:USERPROFILE/.azure-kubelogin") {
     Write-Host "Add kubelogin"
-    $env:path += ";$env.USERPROFILE/.azure-kubelogin;"
+    $env:path += ";$env:USERPROFILE/.azure-kubelogin;"
 }
 
 if (Test-Path -Path $localScriptsRoot) {
