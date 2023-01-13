@@ -8,10 +8,11 @@ Set-Alias vim nvim
 $homeFolder = [environment]::GetFolderPath("UserProfile")
 $documentsFolder = [environment]::GetFolderPath("MyDocuments")
 $sourceRoot = "$($homeFolder)/source"
-$Env:RepoRoot = "$($sourceRoot)/repos"
-$scriptsRoot = "$($sourceRoot)/scripts"
+$repoRoot = "$($sourceRoot)/repos"
+$scriptsRoot = "$($repoRoot)/scripts"
 $localScriptsRoot = "$($documentsFolder)/localscripts"
 $gitBinRoot = "C:\Program Files\Git\usr\bin"
+$Env:RepoRoot = $repoRoot
 
 if (Test-Path -Path $gitBinRoot) {
     Write-Host "Add Git bin tools"
@@ -51,7 +52,7 @@ else {
 
 # Prompt
 Import-Module -Name Terminal-Icons
-oh-my-posh --init --shell pwsh --config ~/.config/ohmpsh/posh.json | Invoke-Expression
+oh-my-posh --init --shell pwsh --config "$($repoRoot)/dotfiles-windows/ohmpsh/posh.json" | Invoke-Expression
 
 # PSReadline Config
 # (Snippets from https://gist.github.com/shanselman/25f5550ad186189e0e68916c6d7f44c3)
@@ -237,6 +238,8 @@ function uuidgen() {
 # - Commit info
 #   git config --global user.name "Your Name"
 #   git config --global user.email you@example.com
+# - Set default branch name
+#   git config --global init.defaultBranch main
 
 # Set Azure Subscription
 # - az login
