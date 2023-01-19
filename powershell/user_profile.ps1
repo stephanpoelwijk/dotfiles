@@ -194,21 +194,21 @@ function uuidgen() {
 
 # Other stuff to install
 #
-# chocolatey from https://chocolatey.org/
-# choco install neovim
-#
 # winget install -e --id Git.Git
 # winget install -e --id JanDeDobbeleer.OhMyPosh
 # winget install -e --id Microsoft.AzureCLI
 # winget install -e --id OpenJS.NodeJS.LTS
 # winget install -e --id Microsoft.VisualStudioCode
 # winget install -e --id Microsoft.VisualStudio.2022.Enterprise
+# winget install -e --id Microsoft.VisualStudio.2022.Professional
 # winget install -e --id Pulumi.Pulumi
 # winget install -e --id Mirantis.Lens
 # winget install -e --id Yarn.Yarn
 # winget install -e --id Docker.DockerDesktop
 # winget install -e --id Microsoft.AzureStorageExplorer
 # winget install -e --id Microsoft.SQLServerManagementStudio
+# winget install -e --id Insomnia.Insomnia
+# winget install -e --id Neovim.Neovim
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
