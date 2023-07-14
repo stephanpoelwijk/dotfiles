@@ -209,6 +209,8 @@ function uuidgen() {
 # winget install -e --id Microsoft.SQLServerManagementStudio
 # winget install -e --id Insomnia.Insomnia
 # winget install -e --id Neovim.Neovim
+# winget install -e --id Hugo.Hugo.Extended
+# winget install Dapr.CLI
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
