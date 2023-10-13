@@ -242,6 +242,8 @@ function uuidgen() {
 #   git config --global user.email you@example.com
 # - Set default branch name
 #   git config --global init.defaultBranch main
+# - Single line logging with some colors (git log --pretty=single-line)
+#   git config --global pretty.single-line "%Cred%h %Cgreen%cI %Creset%s %C(bold blue)<%cn>%Creset"
 
 # Set Azure Subscription
 # - az login
