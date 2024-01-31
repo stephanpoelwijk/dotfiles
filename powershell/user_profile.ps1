@@ -50,6 +50,7 @@ else {
     Write-Host "Check https://github.com/Microsoft/artifacts-credprovider"
 }
 
+
 # Prompt
 Import-Module -Name Terminal-Icons
 oh-my-posh --init --shell pwsh --config "$($repoRoot)/dotfiles-windows/ohmpsh/posh.json" | Invoke-Expression
@@ -60,53 +61,9 @@ if ($host.Name -eq 'ConsoleHost') {
     Import-Module PSReadLine
 }
 
+# History
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-Set-PSReadLineKeyHandler -Key F7 `
-    -BriefDescription History `
-    -LongDescription 'Show command history' `
-    -ScriptBlock {
-    $pattern = $null
-    [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$pattern, [ref]$null)
-    if ($pattern) {
-        $pattern = [regex]::Escape($pattern)
-    }
-
-    $history = [System.Collections.ArrayList]@(
-        $last = ''
-        $lines = ''
-        foreach ($line in [System.IO.File]::ReadLines((Get-PSReadLineOption).HistorySavePath)) {
-            if ($line.EndsWith('`')) {
-                $line = $line.Substring(0, $line.Length - 1)
-                $lines = if ($lines) {
-                    "$lines`n$line"
-                }
-                else {
-                    $line
-                }
-                continue
-            }
-
-            if ($lines) {
-                $line = "$lines`n$line"
-                $lines = ''
-            }
-
-            if (($line -cne $last) -and (!$pattern -or ($line -match $pattern))) {
-                $last = $line
-                $line
-            }
-        }
-    )
-    $history.Reverse()
-
-    $command = $history | Out-GridView -Title History -PassThru
-    if ($command) {
-        [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-        [Microsoft.PowerShell.PSConsoleReadLine]::Insert(($command -join "`n"))
-    }
-}
 
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineOption -PredictionSource History
