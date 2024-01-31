@@ -42,6 +42,7 @@ if (Test-Path -Path $scriptsRoot) {
     $env:path += ";$($scriptsRoot)"
 }
 
+# Write out some information on what is available
 if (Test-Path -Path "$($homeFolder)/.nuget/plugins/netcore/CredentialProvider.Microsoft") {
     Write-Host ".NET Credential Provider"
 }
@@ -50,6 +51,17 @@ else {
     Write-Host "Check https://github.com/Microsoft/artifacts-credprovider"
 }
 
+$azCommandPath = (Get-Command 'az' -ErrorAction SilentlyContinue)
+if ($null -ne $azCommandPath) {
+
+    $azCommandOutput = (az ad signed-in-user show 2>&1) | Out-String
+    if ($azCommandOutput.contains('Interactive authentication is needed')) {
+        Write-Host "Not logged into Azure"
+    }
+    else {
+        Write-Host "Logged into Azure"
+    }
+}
 
 # Prompt
 Import-Module -Name Terminal-Icons
