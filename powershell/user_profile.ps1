@@ -191,6 +191,7 @@ function uuidgen() {
 # winget install -e --id 7zip.7zip
 # winget install Dapr.CLI
 # winget install -e --id LuaLS.lua-language-server
+# winget install -e --id LLVM.LLVM
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
