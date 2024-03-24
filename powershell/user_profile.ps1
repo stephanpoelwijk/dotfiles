@@ -7,12 +7,16 @@ Set-Alias vim nvim
 
 $homeFolder = [environment]::GetFolderPath("UserProfile")
 $documentsFolder = [environment]::GetFolderPath("MyDocuments")
+$configRoot = "$($homeFolder)/.config"
 $sourceRoot = "$($homeFolder)/source"
 $repoRoot = "$($sourceRoot)/repos"
 $scriptsRoot = "$($repoRoot)/scripts"
 $localScriptsRoot = "$($documentsFolder)/localscripts"
 $gitBinRoot = "C:\Program Files\Git\usr\bin"
+$llvmBinRoot = "C:\Program Files\LLVM\bin"
+
 $Env:RepoRoot = $repoRoot
+$Env:XDG_CONFIG_HOME = $configRoot
 
 if (Test-Path -Path $gitBinRoot) {
     Write-Host "Add Git bin tools"
@@ -40,6 +44,11 @@ if (Test-Path -Path $localScriptsRoot) {
 if (Test-Path -Path $scriptsRoot) {
     Write-Host "Adding scripts"
     $env:path += ";$($scriptsRoot)"
+}
+
+if (Test-Path -Path $llvmBinRoot) {
+    Write-Host "Adding LLVM"
+    $env:path += ";$($llvmBinRoot)"
 }
 
 # Write out some information on what is available
@@ -181,6 +190,7 @@ function uuidgen() {
 # winget install -e --id Hugo.Hugo.Extended
 # winget install -e --id 7zip.7zip
 # winget install Dapr.CLI
+# winget install -e --id LuaLS.lua-language-server
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
