@@ -191,7 +191,8 @@ function uuidgen() {
 # winget install -e --id 7zip.7zip
 # winget install Dapr.CLI
 # winget install -e --id LuaLS.lua-language-server
-# winget install -e --id LLVM.LLVM
+# winget install -e --id LLVM.LLVM                      # As admin apparently
+# winget install -e --id BurntSushi.ripgrep.MSVC
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
@@ -205,6 +206,9 @@ function uuidgen() {
 # code --install-extension sdras.night-owl
 # code --install-extension johnsoncodehk.volar
 # code --install-extension WallabyJs.quokka-vscode
+
+# Neovim Extensions
+# git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 
 # Add Az Devops Artifact feed
 # - Generate a PAT
