@@ -193,6 +193,7 @@ function uuidgen() {
 # winget install -e --id LuaLS.lua-language-server
 # winget install -e --id LLVM.LLVM                      # As admin apparently
 # winget install -e --id BurntSushi.ripgrep.MSVC
+# winget install -e --id Obsidian.Obsidian
 
 # VSCode Extensions
 # code --install-extension ms-vscode.hexeditor
