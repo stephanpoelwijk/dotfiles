@@ -1,3 +1,4 @@
+```
 sudo apt install nvim
 sudo apt install ripgrep
 sudo apt install make
@@ -20,3 +21,4 @@ In case of trouble, remove stuff in ~/.local/share/nvim
 installation of plugins comes from:
 https://www.josean.com/posts/how-to-setup-neovim-2024
 
+```
