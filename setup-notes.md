@@ -21,4 +21,10 @@ In case of trouble, remove stuff in ~/.local/share/nvim
 installation of plugins comes from:
 https://www.josean.com/posts/how-to-setup-neovim-2024
 
+Symlink things to repo:
+
+ln -s ~/repos/dotfiles/nvim ~/.config/nvim
+ln -s ~/repos/dotfiles-windows/powershell ~/.config/powershell
+
+
 ```
