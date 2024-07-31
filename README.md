@@ -1,4 +1,4 @@
-# DotFiles-Windows
+# dotfiles
 
 Collection of Powershell, VSCode and Terminal configuration files and information for a new machine setup.
 
