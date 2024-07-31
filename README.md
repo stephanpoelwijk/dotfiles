@@ -22,6 +22,7 @@ Extra setting to Ctrl+. our way through constructor parameters and creating priv
 ```
 ln -s ~/repos/dotfiles/nvim ~/.config/nvim
 ln -s ~/repos/dotfiles/powershell ~/.config/powershell
+ln -s ~/repos/dotfiles/oh-my-posh ~/.config/oh-my-posh
 ```
 
 ## Dotnet stuff

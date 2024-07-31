@@ -78,7 +78,7 @@ if ($null -ne $azCommandPath) {
 
 # Prompt
 Import-Module -Name Terminal-Icons
-oh-my-posh --init --shell pwsh --config "$($repoRoot)/dotfiles-windows/ohmpsh/posh.json" | Invoke-Expression
+oh-my-posh --init --shell pwsh --config "$($configRoot)/oh-my-posh/posh.json" | Invoke-Expression
 
 # PSReadline Config
 # (Snippets from https://gist.github.com/shanselman/25f5550ad186189e0e68916c6d7f44c3)
