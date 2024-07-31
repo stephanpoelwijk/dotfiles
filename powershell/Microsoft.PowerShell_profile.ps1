@@ -5,6 +5,10 @@ Set-Alias clip Set-Clipboard
 Set-Alias vi nvim
 Set-Alias vim nvim
 
+if ($IsMacOs) {
+  $(/opt/homebrew/bin/brew shellenv) | Invoke-Expression
+}
+
 $homeFolder = [environment]::GetFolderPath("UserProfile")
 $documentsFolder = [environment]::GetFolderPath("MyDocuments")
 $configRoot = "$($homeFolder)/.config"
