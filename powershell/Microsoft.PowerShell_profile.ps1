@@ -12,8 +12,15 @@ if ($IsMacOs) {
 $homeFolder = [environment]::GetFolderPath("UserProfile")
 $documentsFolder = [environment]::GetFolderPath("MyDocuments")
 $configRoot = "$($homeFolder)/.config"
-$sourceRoot = "$($homeFolder)/source"
-$repoRoot = "$($sourceRoot)/repos"
+
+if ($IsWindows) {
+  $sourceRoot = "$($homeFolder)/source"
+  $repoRoot = "$($sourceRoot)/repos"
+$
+}
+else {
+  $repoRoot = "$($homeFolder)/repos"
+}
 $scriptsRoot = "$($repoRoot)/scripts"
 $localScriptsRoot = "$($documentsFolder)/localscripts"
 $gitBinRoot = "C:\Program Files\Git\usr\bin"
@@ -68,7 +75,7 @@ $azCommandPath = (Get-Command 'az' -ErrorAction SilentlyContinue)
 if ($null -ne $azCommandPath) {
 
     $azCommandOutput = (az ad signed-in-user show 2>&1) | Out-String
-    if ($azCommandOutput.contains('Interactive authentication is needed')) {
+    if ($azCommandOutput.contains('Interactive authentication is needed') -or $azCommandOutput.contains('Please run')) {
         Write-Host "Not logged into Azure"
     }
     else {
