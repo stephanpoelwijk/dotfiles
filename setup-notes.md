@@ -30,4 +30,10 @@ Ensure this is in the path:
 $(/opt/homebrew/bin/brew shellenv) | Invoke-Expression
 
 
+## dotnet stuff
+dotnet dev-certs https --trust
+
+### Launchsettings need some work
+https://github.com/dotnet/runtime/issues/27132
+
 ```
