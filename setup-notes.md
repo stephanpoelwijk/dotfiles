@@ -26,5 +26,8 @@ Symlink things to repo:
 ln -s ~/repos/dotfiles/nvim ~/.config/nvim
 ln -s ~/repos/dotfiles-windows/powershell ~/.config/powershell
 
+Ensure this is in the path:
+$(/opt/homebrew/bin/brew shellenv) | Invoke-Expression
+
 
 ```
