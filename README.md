@@ -19,8 +19,10 @@ Extra setting to Ctrl+. our way through constructor parameters and creating priv
 
 ## Symlink configuration
 
+```
 ln -s ~/repos/dotfiles-windows/nvim ~/.config/nvim
 ln -s ~/repos/dotfiles-windows/powershell ~/.config/powershell
+```
 
 ## Dotnet stuff
 
