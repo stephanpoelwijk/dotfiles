@@ -24,12 +24,9 @@ return {
 		},
 		notes_subdir = "inbox",
 		new_notes_location = "notes_subdir",
-
+		disable_frontmatter = true,
 		ui = {
 			enable = false,
-		},
-		templates = {
-			folder = "templates",
 		},
 
 		-- see below for full list of options 👇

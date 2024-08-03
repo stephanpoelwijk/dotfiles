@@ -29,6 +29,10 @@ keymap.set("n", "<leader>on", function()
 	local lines = {}
 	-- table.insert(lines, "This is something from lua")
 	vim.ui.input({ prompt = "New Note Title: " }, function(noteName)
+		if noteName == nil then
+			return
+		end
+
 		local tokens = {
 			["NOTE_TITLE"] = noteName,
 			["CURRENT_DATE"] = vim.fn.strftime("%Y-%m-%d"),
@@ -45,8 +49,9 @@ keymap.set("n", "<leader>on", function()
 			end
 		end
 
-		print(tokens)
-		local saferNoteFileName = noteName:gsub("%s", "_")
+		local saferNoteFileName = string.lower(noteName:gsub("%s", "_"))
+
+		-- print(string.lower(saferNoteFileName))
 		vim.cmd.new(vaultInboxPath .. "/" .. noteTimestamp .. "_" .. saferNoteFileName .. ".md")
 		local currentBuffer = vim.api.nvim_win_get_buf(0)
 		local window = vim.api.nvim_get_current_win()
