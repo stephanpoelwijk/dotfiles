@@ -27,16 +27,25 @@ keymap.set("n", "<leader>on", function()
 	local noteTimestamp = vim.fn.strftime("%Y-%m-%d_%H-%M")
 	local file = io.open(vaultTemplateFileName, "r")
 	local lines = {}
-
-	if file == nil then
-		table.insert(lines, "Could not open template filename: " .. vaultTemplateFileName)
-	else
-		for line in file:lines() do
-			table.insert(lines, line)
-		end
-	end
 	-- table.insert(lines, "This is something from lua")
 	vim.ui.input({ prompt = "New Note Title: " }, function(noteName)
+		local tokens = {
+			["NOTE_TITLE"] = noteName,
+			["CURRENT_DATE"] = vim.fn.strftime("%Y-%m-%d"),
+		}
+
+		if file == nil then
+			table.insert(lines, "Could not open template filename: " .. vaultTemplateFileName)
+		else
+			for line in file:lines() do
+				for tokenKey, tokenValue in pairs(tokens) do
+					line = line:gsub("{ " .. tokenKey .. " }", tokenValue)
+				end
+				table.insert(lines, line)
+			end
+		end
+
+		print(tokens)
 		local saferNoteFileName = noteName:gsub("%s", "_")
 		vim.cmd.new(vaultInboxPath .. "/" .. noteTimestamp .. "_" .. saferNoteFileName .. ".md")
 		local currentBuffer = vim.api.nvim_win_get_buf(0)
