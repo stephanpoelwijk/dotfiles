@@ -1,6 +1,5 @@
 vim.cmd("let g:netrw_liststyle = 3")
 
-
 local opt = vim.opt -- for conciseness
 
 -- line numbers
@@ -44,3 +43,17 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+opt.formatprg = "prettier --stdin-filepath %"
+
+-- opt.formatoptions = "jcroqlnt"
+
+-- autocmds
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = { "*.md" },
+	callback = function()
+		vim.opt.colorcolumn = "80"
+		vim.opt.textwidth = 80
+		vim.opt.wrap = true
+		vim.opt.formatprg = "prettier --prose-wrap=always --print-width 80 --stdin-filepath %"
+	end,
+})
