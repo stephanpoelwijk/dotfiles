@@ -51,9 +51,6 @@ opt.formatprg = "prettier --stdin-filepath %"
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = { "*.md" },
 	callback = function()
-		vim.opt.colorcolumn = "80"
-		vim.opt.textwidth = 80
-		vim.opt.wrap = true
 		vim.opt.formatprg = "prettier --prose-wrap=always --print-width 80 --stdin-filepath %"
 	end,
 })
