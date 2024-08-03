@@ -25,6 +25,8 @@ ln -s ~/repos/dotfiles/powershell ~/.config/powershell
 ln -s ~/repos/dotfiles/oh-my-posh ~/.config/oh-my-posh
 ```
 
+Link Obsidian vaults to a subfolder of to `~/vaults`.
+
 ## Dotnet stuff
 
 - Create a self-signed certificate with `dotnet dev-certs https --trust`
