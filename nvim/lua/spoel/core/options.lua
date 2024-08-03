@@ -43,7 +43,7 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
-opt.formatprg = "prettier --stdin-filepath %"
+opt.formatprg = 'prettier --stdin-filepath "%"'
 
 -- opt.formatoptions = "jcroqlnt"
 
@@ -51,6 +51,6 @@ opt.formatprg = "prettier --stdin-filepath %"
 vim.api.nvim_create_autocmd("BufWinEnter", {
 	pattern = { "*.md" },
 	callback = function()
-		vim.opt.formatprg = "prettier --prose-wrap=always --print-width 80 --stdin-filepath %"
+		vim.opt.formatprg = 'prettier --prose-wrap=always --print-width 80 --stdin-filepath "%"'
 	end,
 })
