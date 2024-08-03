@@ -20,7 +20,31 @@ keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- incremen
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- Obsidian
-keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "New Obsidian note" })
+keymap.set("n", "<leader>on", function()
+	local vaultInboxPath = vim.fn.expand("~/vaults/notes/inbox")
+	local vaultTemplateFileName = vim.fn.expand("~/vaults/notes/templates/newnote.md")
+
+	local noteTimestamp = vim.fn.strftime("%Y-%m-%d_%H-%M")
+	vim.cmd.new(vaultInboxPath .. "/" .. noteTimestamp .. "_note.md")
+
+	local currentBuffer = vim.api.nvim_win_get_buf(0)
+	local window = vim.api.nvim_get_current_win()
+	local row, col = unpack(vim.api.nvim_win_get_cursor(window))
+
+	local file = io.open(vaultTemplateFileName, "r")
+	local lines = {}
+
+	if file == nil then
+		table.insert(lines, "Could not open template filename: " .. vaultTemplateFileName)
+	else
+		for line in file:lines() do
+			table.insert(lines, line)
+		end
+	end
+	-- table.insert(lines, "This is something from lua")
+	vim.api.nvim_buf_set_lines(currentBuffer, row - 1, row - 1, false, lines)
+end)
+
 keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Obsidian Search " })
 
 -- window management

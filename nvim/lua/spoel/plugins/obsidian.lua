@@ -28,6 +28,9 @@ return {
 		ui = {
 			enable = false,
 		},
+		templates = {
+			folder = "templates",
+		},
 
 		-- see below for full list of options 👇
 	},
