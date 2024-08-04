@@ -44,13 +44,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 opt.formatprg = 'prettier --stdin-filepath "%"'
-
--- opt.formatoptions = "jcroqlnt"
-
--- autocmds
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = { "*.md" },
-	callback = function()
-		vim.opt.formatprg = 'prettier --prose-wrap=always --print-width 80 --stdin-filepath "%"'
-	end,
-})
