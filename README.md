@@ -26,6 +26,7 @@ ln -s ~/repos/dotfiles/nvim ~/.config/nvim
 ln -s ~/repos/dotfiles/powershell ~/.config/powershell
 ln -s ~/repos/dotfiles/oh-my-posh ~/.config/oh-my-posh
 ln -s ~/repos/dotfiles/.prettierrc ~/.prettierrc
+ln -s ~/repos/dotfiles/.pylintrc ~/.pylintrc
 ```
 
 Link Obsidian vaults to a subfolder of to `~/vaults`.
