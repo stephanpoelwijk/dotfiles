@@ -22,7 +22,7 @@ return {
 				path = "~/vaults/notes",
 			},
 		},
-		notes_subdir = "inbox",
+		notes_subdir = "_inbox",
 		new_notes_location = "notes_subdir",
 		disable_frontmatter = true,
 		ui = {

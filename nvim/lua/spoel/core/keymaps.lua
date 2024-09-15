@@ -17,7 +17,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Obsidian
 keymap.set("n", "<leader>on", function()
-	local vaultInboxPath = vim.fn.expand("~/vaults/notes/inbox")
+	local vaultInboxPath = vim.fn.expand("~/vaults/notes/_inbox")
 	local vaultTemplateFileName = vim.fn.expand("~/vaults/notes/templates/newnote.md")
 
 	local noteTimestamp = vim.fn.strftime("%Y-%m-%d_%H-%M")
