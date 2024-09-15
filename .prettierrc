@@ -1,18 +1,19 @@
 {
-  "tabWidth": 4,
-  "useTabs": false,
-  "overrides": [
-    {
-      "files": ["*.md"],
-      "options": {
-        "proseWrap": "always"
-      }
-    },
-    {
-      "files": ["*.cs"],
-      "options": {
-        "tabWidth": 4
-      }
-    }
-  ]
+    "tabWidth": 4,
+    "useTabs": false,
+    "overrides": [
+        {
+            "files": ["*.md"],
+            "options": {
+                "proseWrap": "always",
+                "bracketSpacing": false
+            }
+        },
+        {
+            "files": ["*.cs"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
 }
