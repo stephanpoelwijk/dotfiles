@@ -70,3 +70,8 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+-- Some keybindings a la Visual Studio
+keymap.set("n", "<leader>kr", "<cmd>Telescope lsp_references<CR>", { desc = "Show references" }) -- show definition, references
+keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" }) -- smart rename
+keymap.set("n", "<F12>", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definition" }) -- show lsp definitions
