@@ -67,6 +67,11 @@ return {
 
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+				opts.desc = "Hover"
+				keymap.set("n", "<C-s>", function()
+					vim.lsp.buf.signature_help()
+				end, opts)
 			end,
 		})
 
