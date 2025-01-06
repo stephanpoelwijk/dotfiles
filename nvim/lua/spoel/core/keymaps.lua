@@ -7,7 +7,7 @@ local keymap = vim.keymap -- for conciseness
 -- General Keymaps -------------------
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<Esc>", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
 -- keymap.set("n", "x", '"_x')
@@ -72,3 +72,14 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 keymap.set("n", "<leader>kr", "<cmd>Telescope lsp_references<CR>", { desc = "Show references" }) -- show definition, references
 keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "Rename symbol" }) -- smart rename
 keymap.set("n", "<F12>", "<cmd>Telescope lsp_definitions<CR>", { desc = "Show LSP definition" }) -- show lsp definitions
+keymap.set("n", "<C-F12>", "<cmd>Telescope lsp_implementations<CR>", { desc = "Show LSP implementations" })
+
+-- Other Windowsy things
+keymap.set("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
+keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Previous buffer" })
+
+keymap.set("v", "<Tab>", ">gv", { desc = "Indent (Shift-Right)" })
+keymap.set("v", "<S-Tab>", "<gv", { desc = "Un-indent (Shift-Left)" })
+
+keymap.set("n", "<C-a>", "ggVG", { desc = "Select All" })
+keymap.set({ "n", "v" }, "<F1>", vim.lsp.buf.code_action, { desc = "Show available code actions" }) -- see available code actions, in visual mode will apply to selection
