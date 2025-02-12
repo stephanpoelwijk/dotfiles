@@ -38,6 +38,10 @@ Link Obsidian vaults to a subfolder of to `~/vaults`.
 -   [HTTPS needs to be before HTTP in the launchsettings](https://github.com/dotnet/runtime/issues/27132)
     for things to work
 
+## XCode Stuff
+
+-   Header template macros go into `~/Library/Developer/Xcode/UserData`
+
 ## Misc
 
 -   Neovim plugin configuration mostly comes from
