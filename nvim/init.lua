@@ -1,3 +1,3 @@
-vim.print("This is a message from the main init.lua")
+vim.print("Are you pondering what I'm pondering?")
 
 require("user")
