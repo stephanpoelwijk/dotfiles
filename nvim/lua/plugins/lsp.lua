@@ -60,6 +60,12 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["tailwindcss"] = function()
+					lspconfig["tailwindcss"].setup({
+						capabilities = capabilities,
+						filetypes = { "typescriptreact", "javascriptreact", "html" },
+					})
+				end,
 			})
 		end,
 	},
