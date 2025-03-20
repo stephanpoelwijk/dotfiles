@@ -25,7 +25,10 @@ lazy.setup({
 	},
 	change_detection = {
 		enabled = true,
-		notify = true,
+		notify = false,
 	},
-	checker = { enabled = true },
+	checker = { 
+    enabled = true,
+    notify = false
+  },
 })
