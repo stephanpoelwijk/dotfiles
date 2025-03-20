@@ -1,12 +1,13 @@
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "hrsh7th/cmp-nvim-lsp",
   },
-  config = function() 
+  config = function()
 
     local mason = require('mason')
     local masonLspConfig = require('mason-lspconfig')
@@ -45,6 +46,19 @@ return {
 			-- 	-- "pylint",
 			-- 	"eslint_d",
 			-- },
+    })
+
+    -- Lsp configuration
+    local lspconfig = require("lspconfig")
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local capabilities = cmp_nvim_lsp.default_capabilities()
+
+    masonLspConfig.setup_handlers({
+      function(server_name)
+        lspconfig[server_name].setup({
+          capabilities = capabilities
+        })
+      end
     })
 
   end,
