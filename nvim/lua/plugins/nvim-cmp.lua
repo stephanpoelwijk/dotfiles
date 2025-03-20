@@ -24,13 +24,21 @@ return {
 
     -- Some objects to attempt to make things a bit more readable
     local lspKindFormatOptions = lspKind.cmp_format({
-      mode = 'symbol',
+      mode = 'symbol_text',
       maxwidth = 50,
       show_labelDetails = true,
-      ellipsis_char = "..."
+      ellipsis_char = "...",
+      menu = {
+					nvim_lsp = "[LSP]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+					luasnip = "[Snippet]",
+					nvim_lsp_signature_help = "[Signature]",
+				}
     })
 
     local luaSnipCompletionOptions = {
+      expandable_indicator = true,
       expand = function(args)
         luaSnip.lsp_expand(args)
       end
