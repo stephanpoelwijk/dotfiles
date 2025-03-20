@@ -15,5 +15,9 @@ keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
+-- Oil
+keymap.set('n', '-', "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+
 
 return M
