@@ -58,6 +58,7 @@ return {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
+						-- settings = {},
 					})
 				end,
 				["lua_ls"] = function()
