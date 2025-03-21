@@ -58,6 +58,23 @@ return {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
+						-- settings = {},
+					})
+				end,
+				["lua_ls"] = function()
+					lspconfig["lua_ls"].setup({
+						capabilities = capabilities,
+						settings = {
+							Lua = {
+								runtime = { version = "LuaJIT" },
+								workspace = {
+									checkThirdParty = false,
+									library = {
+										vim.env.VIMRUNTIME,
+									},
+								},
+							},
+						},
 					})
 				end,
 				["tailwindcss"] = function()
