@@ -20,6 +20,7 @@ vim.opt.breakindent = true
 -- Enable incremental searching
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
+vim.opt.inccommand = "split"
 
 -- Disable text wrap
 vim.opt.wrap = false
