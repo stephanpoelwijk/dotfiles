@@ -60,6 +60,22 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+				["lua_ls"] = function()
+					lspconfig["lua_ls"].setup({
+						capabilities = capabilities,
+						settings = {
+							Lua = {
+								runtime = { version = "LuaJIT" },
+								workspace = {
+									checkThirdParty = false,
+									library = {
+										vim.env.VIMRUNTIME,
+									},
+								},
+							},
+						},
+					})
+				end,
 				["tailwindcss"] = function()
 					lspconfig["tailwindcss"].setup({
 						capabilities = capabilities,
