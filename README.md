@@ -41,8 +41,3 @@ Link Obsidian vaults to a subfolder of to `~/vaults`.
 ## XCode Stuff
 
 -   Header template macros go into `~/Library/Developer/Xcode/UserData`
-
-## Misc
-
--   Neovim plugin configuration mostly comes from
-    [here](https://www.josean.com/posts/how-to-setup-neovim-2024)
