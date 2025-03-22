@@ -69,7 +69,7 @@ return {
 				{ name = "buffer", max_item_count = 5, group_index = 2 }, -- text within current buffer
 				{ name = "path", max_item_count = 3, group_index = 3 }, -- file system paths
 				{ name = "luasnip", max_item_count = 3, group_index = 5 }, -- snippets
-				{ name = "nvim-lsp-signature-help" },
+				{ name = "nvim_lsp_signature_help" },
 			}),
 			formatting = {
 				format = lspKindFormatOptions,
