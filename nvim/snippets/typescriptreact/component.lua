@@ -9,7 +9,7 @@ return {
 		t({ "export default function " .. bufName .. "({", "" }),
 		t({ "  className,", "" }),
 		t({ "  ...props", "" }),
-		t({ ': React.ComponentProps<"div"> & { }) {', "" }),
+		t({ '} : React.ComponentProps<"div"> & { }) {', "" }),
 		t({ " return (", "" }),
 		t({ "   <div", "" }),
 		t({ '     className={cn("w-full bg-white", className)}', "" }),
