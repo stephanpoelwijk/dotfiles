@@ -2,7 +2,8 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
+		-- event = { "BufReadPre", "BufNewFile" },
+		event = { "BufReadPost" },
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
@@ -13,6 +14,21 @@ return {
 			local mason = require("mason")
 			local masonLspConfig = require("mason-lspconfig")
 			local masonToolInstaller = require("mason-tool-installer")
+
+			local function dump(o)
+				if type(o) == "table" then
+					local s = "{ "
+					for k, v in pairs(o) do
+						if type(k) ~= "number" then
+							k = '"' .. k .. '"'
+						end
+						s = s .. "[" .. k .. "] = " .. dump(v) .. ","
+					end
+					return s .. "} "
+				else
+					return tostring(o)
+				end
+			end
 
 			mason.setup({
 				ui = {
@@ -51,14 +67,28 @@ return {
 
 			-- Lsp configuration
 			local lspconfig = require("lspconfig")
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local capabilities = cmp_nvim_lsp.default_capabilities()
+			-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			-- local capabilities = cmp_nvim_lsp.default_capabilities()
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+			-- print(dump(capabilities))
 
 			masonLspConfig.setup_handlers({
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
 						-- settings = {},
+					})
+				end,
+				["csharp_ls"] = function()
+					lspconfig["csharp_ls"].setup({
+						capabilities = capabilities,
+						handlers = {
+							["textDocument/signatureHelp"] = function()
+								vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+							end,
+						},
 					})
 				end,
 				["lua_ls"] = function()
@@ -92,9 +122,22 @@ return {
 		config = function()
 			local conform = require("conform")
 
+			vim.api.nvim_create_user_command("FormatDocument", function(args)
+				local range = nil
+				if args.count ~= -1 then
+					local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+					range = {
+						start = { args.line1, 0 },
+						["end"] = { args.line2, end_line:len() },
+					}
+				end
+				require("conform").format({ async = true, lsp_format = "fallback", range = range })
+			end, { range = true })
+
 			conform.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
+					["_"] = { "prettier" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
