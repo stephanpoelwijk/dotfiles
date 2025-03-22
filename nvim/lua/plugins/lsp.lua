@@ -144,6 +144,19 @@ return {
 					timeout_ms = 500,
 					lsp_format = "fallback",
 				},
+				formatters = {
+					prettier = {
+						prepend_args = function()
+							--							local filetype = conform.get_matching_filetype(buf)
+							local extension = vim.fn.expand("%:e")
+							if extension == "tsx" then
+								return { "--single-quote", "--bracket-same-line", "--tab-width", "2" }
+							else
+								return {}
+							end
+						end,
+					},
+				},
 			})
 		end,
 	},
