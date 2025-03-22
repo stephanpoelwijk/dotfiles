@@ -21,6 +21,7 @@ return {
 
 		-- Load snippets from VS Code
 		require("luasnip.loaders.from_vscode").lazy_load()
+		require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
 
 		-- Some objects to attempt to make things a bit more readable
 		local lspKindFormatOptions = lspKind.cmp_format({
@@ -49,19 +50,8 @@ return {
 			documentation = cmp.config.window.bordered(),
 		}
 
-		-- Set up the things
+		-- Set up the thing
 		luaSnip.config.setup({})
-
-		luaSnip.add_snippets("all", {
-			luaSnip.s("ternary", {
-				-- equivalent to "${1:cond} ? ${2:then} : ${3:else}"
-				luaSnip.i(1, "cond"),
-				luaSnip.t(" ? "),
-				luaSnip.i(2, "then"),
-				luaSnip.t(" : "),
-				luaSnip.i(3, "else"),
-			}),
-		})
 
 		cmp.setup({
 			completion = { completeopt = "menu,menuone,noinsert" },
