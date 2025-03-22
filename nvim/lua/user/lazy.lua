@@ -21,14 +21,14 @@ local lazy = require("lazy")
 
 lazy.setup({
 	spec = {
-    { import = "plugins" },
+		{ import = "plugins" },
 	},
 	change_detection = {
 		enabled = true,
 		notify = false,
 	},
-	checker = { 
-    enabled = true,
-    notify = false
-  },
+	checker = {
+		enabled = true,
+		notify = false,
+	},
 })
