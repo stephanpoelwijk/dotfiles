@@ -121,7 +121,14 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					cs = { "csharpier" },
-					["_"] = { "prettier" },
+					["_"] = function()
+						local fileName = vim.fn.expand("%")
+						if vim.fn.match(fileName, "^oil:") == 0 then
+							return {}
+						end
+
+						return { "prettier" }
+					end,
 				},
 				format_on_save = {
 					timeout_ms = 500,
@@ -130,7 +137,6 @@ return {
 				formatters = {
 					prettier = {
 						prepend_args = function()
-							--							local filetype = conform.get_matching_filetype(buf)
 							local extension = vim.fn.expand("%:e")
 							if extension == "tsx" then
 								return { "--single-quote", "--bracket-same-line", "--tab-width", "2" }
