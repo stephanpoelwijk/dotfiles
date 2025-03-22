@@ -137,7 +137,7 @@ return {
 			conform.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					cs = { "prettier" },
+					cs = { "csharpier" },
 					["_"] = { "prettier" },
 				},
 				format_on_save = {
