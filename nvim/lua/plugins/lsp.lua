@@ -2,7 +2,6 @@ return {
 
 	{
 		"neovim/nvim-lspconfig",
-		-- event = { "BufReadPre", "BufNewFile" },
 		event = { "BufReadPost" },
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -52,8 +51,6 @@ return {
 
 			-- Lsp configuration
 			local lspconfig = require("lspconfig")
-			-- local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			-- local capabilities = cmp_nvim_lsp.default_capabilities()
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -67,11 +64,6 @@ return {
 				["csharp_ls"] = function()
 					lspconfig["csharp_ls"].setup({
 						capabilities = capabilities,
-						-- handlers = {
-						-- 	["textDocument/signatureHelp"] = function()
-						-- 		vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-						-- 	end,
-						-- },
 					})
 				end,
 				["lua_ls"] = function()
