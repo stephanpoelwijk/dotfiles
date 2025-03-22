@@ -84,11 +84,11 @@ return {
 				["csharp_ls"] = function()
 					lspconfig["csharp_ls"].setup({
 						capabilities = capabilities,
-						handlers = {
-							["textDocument/signatureHelp"] = function()
-								vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-							end,
-						},
+						-- handlers = {
+						-- 	["textDocument/signatureHelp"] = function()
+						-- 		vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+						-- 	end,
+						-- },
 					})
 				end,
 				["lua_ls"] = function()
