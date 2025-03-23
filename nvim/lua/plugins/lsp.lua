@@ -120,10 +120,10 @@ return {
 			conform.setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					cs = { "csharpier" },
 					["_"] = function()
 						local fileName = vim.fn.expand("%")
-						if vim.fn.match(fileName, "^oil:") == 0 then
+						if vim.fn.match(fileName, "^oil:") == 0 or vim.fn.match(fileName, "\\.cs$") > 0 then
+							print("Skipping formatting for " .. fileName)
 							return {}
 						end
 
