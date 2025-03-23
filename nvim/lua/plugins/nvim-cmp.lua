@@ -24,19 +24,30 @@ return {
 		require("luasnip.loaders.from_lua").lazy_load({ paths = "~/.config/nvim/snippets/" })
 
 		-- Some objects to attempt to make things a bit more readable
-		local lspKindFormatOptions = lspKind.cmp_format({
-			mode = "symbol_text",
-			maxwidth = 50,
-			show_labelDetails = true,
-			ellipsis_char = "...",
-			menu = {
-				nvim_lsp = "[LSP]",
-				buffer = "[Buffer]",
-				path = "[Path]",
-				luasnip = "[Snippet]",
-				nvim_lsp_signature_help = "[Signature]",
-			},
-		})
+		local formatOptions = function(entry, item)
+			local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+
+			item = lspKind.cmp_format({
+				mode = "symbol_text",
+				maxwidth = 50,
+				show_labelDetails = true,
+				ellipsis_char = "...",
+				menu = {
+					nvim_lsp = "[LSP]",
+					buffer = "[Buffer]",
+					path = "[Path]",
+					luasnip = "[Snippet]",
+					nvim_lsp_signature_help = "[Signature]",
+				},
+			})(entry, item)
+
+			if color_item.abbr_hl_group then
+				item.kind_hl_group = color_item.abbr_hl_group
+				item.kind = color_item.abbr
+			end
+
+			return item
+		end
 
 		local luaSnipCompletionOptions = {
 			expandable_indicator = true,
@@ -74,7 +85,7 @@ return {
 				{ name = "nvim_lsp_signature_help" },
 			}),
 			formatting = {
-				format = lspKindFormatOptions,
+				format = formatOptions,
 			},
 		})
 	end,
