@@ -104,6 +104,7 @@ return {
 		opts = {},
 		config = function()
 			local conform = require("conform")
+			local stringUtil = require("usermodules.stringutil")
 
 			vim.api.nvim_create_user_command("FormatDocument", function(args)
 				local range = nil
@@ -122,7 +123,7 @@ return {
 					lua = { "stylua" },
 					["_"] = function()
 						local fileName = vim.fn.expand("%")
-						if vim.fn.match(fileName, "^oil:") == 0 or vim.fn.match(fileName, "\\.cs$") > 0 then
+						if stringUtil.starts_with(fileName, "oil:") or stringUtil.ends_with(fileName, "\\.cs") then
 							print("Skipping formatting for " .. fileName)
 							return {}
 						end
