@@ -17,10 +17,8 @@ keymap.set("n", "<Esc", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", { desc = "Open LazyGit" })
 
 M.map_lsp_keys = function(buffer)
-	print("map_lsp_keys")
 	local opts = { buffer = buffer, silent = true }
 
-	-- set keybinds
 	opts.desc = "Show LSP references"
 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
