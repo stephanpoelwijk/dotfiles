@@ -2,9 +2,6 @@ local M = {}
 
 local keymap = vim.keymap
 
--- Misc stuff
-keymap.set("n", "<Esc", ":nohlsearch<CR>", { desc = "Clear search highlights" })
-
 -- Telescope
 local builtin = require("telescope.builtin")
 keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
@@ -16,6 +13,7 @@ keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" 
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Utilities
+keymap.set("n", "<Esc", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", { desc = "Open LazyGit" })
 
 return M
