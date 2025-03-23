@@ -49,6 +49,14 @@ return {
 				-- },
 			})
 
+			-- Map keys when LSP attaches
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					require("user.keymaps").map_lsp_keys(ev.buffer)
+				end,
+			})
+
 			-- Lsp configuration
 			local lspconfig = require("lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
