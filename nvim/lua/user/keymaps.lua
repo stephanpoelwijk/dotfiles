@@ -17,8 +17,5 @@ keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Utilities
 keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", { desc = "Open LazyGit" })
-keymap.set("n", "<leader>?", function()
-	require("which-key").show({ global = true })
-end, { desc = "Local keymaps (which-key)" })
 
 return M
