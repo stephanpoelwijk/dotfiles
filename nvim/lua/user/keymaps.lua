@@ -25,7 +25,7 @@ vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { desc = "Close quickfix list" 
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.setqflist, { desc = "Populate quickfix list with diagnostics" })
 
 vim.keymap.set("n", "<leader>b", function()
-	require("usermodules.dotnetstuff").build()
+	require("usermodules.dotnetbuildstuff").build()
 end, { desc = "Build Stuff" })
 
 M.map_lsp_keys = function(buffer)
