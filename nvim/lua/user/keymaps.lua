@@ -17,12 +17,10 @@ keymap.set("n", "<Esc", ":nohlsearch<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>lg", "<CMD>LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Quickfix navigation
-vim.keymap.set("n", "<leader>cn", ":cnext<cr>", { desc = "Go to next quickfix item" })
-vim.keymap.set("n", "<leader>cp", ":cprevious<cr>", { desc = "Go to previous quickfix item" })
-vim.keymap.set("n", "<leader>co", ":copen<cr>", { desc = "Open quickfix list" })
-vim.keymap.set("n", "<leader>cc", ":cclose<cr>", { desc = "Close quickfix list" })
-
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.setqflist, { desc = "Populate quickfix list with diagnostics" })
+vim.keymap.set("n", "<leader>qo", ":copen<cr>", { desc = "Open quickfix list" })
+vim.keymap.set("n", "<leader>qq", ":cclose<cr>", { desc = "Close quickfix list" })
+vim.keymap.set("n", "<leader>qn", ":cnext<cr>", { desc = "Go to next quickfix item" })
+vim.keymap.set("n", "<leader>qp", ":cprevious<cr>", { desc = "Go to previous quickfix item" })
 
 vim.keymap.set("n", "<leader>b", function()
 	require("usermodules.dotnetbuildstuff").build()
