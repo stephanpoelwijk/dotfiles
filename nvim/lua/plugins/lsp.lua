@@ -26,6 +26,7 @@ return {
 
 			masonLspConfig.setup({
 				ensure_installed = {
+					"asm_lsp",
 					"csharp_ls",
 					"cssls",
 					"eslint",
