@@ -8,4 +8,8 @@ M.ends_with = function(s, s_end)
 	return vim.fn.match(s, s_end .. "$") > 0
 end
 
+M.matches = function(s, pattern)
+	return vim.fn.match(s, pattern) >= 0
+end
+
 return M

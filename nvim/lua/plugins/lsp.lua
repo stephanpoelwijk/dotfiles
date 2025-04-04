@@ -107,6 +107,8 @@ return {
 			local conform = require("conform")
 			local stringUtil = require("usermodules.stringutil")
 
+			local ignoredFilePatterns = { "oil:", "\\.cs", "[Dd]ockerfile" }
+
 			vim.api.nvim_create_user_command("FormatDocument", function(args)
 				local range = nil
 				if args.count ~= -1 then
@@ -127,9 +129,12 @@ return {
 					lua = { "stylua" },
 					["_"] = function()
 						local fileName = vim.fn.expand("%")
-						if stringUtil.starts_with(fileName, "oil:") or stringUtil.ends_with(fileName, "\\.cs") then
-							print("Skipping formatting for " .. fileName)
-							return {}
+
+						for index, value in ipairs(ignoredFilePatterns) do
+							if stringUtil.matches(fileName, value) then
+								print("Skipping formatting for " .. fileName .. " index: " .. index)
+								return {}
+							end
 						end
 
 						return { "prettier" }
