@@ -22,6 +22,10 @@ vim.keymap.set("n", "<leader>qq", ":cclose<cr>", { desc = "Close quickfix list" 
 vim.keymap.set("n", "<leader>qn", ":cnext<cr>", { desc = "Go to next quickfix item" })
 vim.keymap.set("n", "<leader>qp", ":cprevious<cr>", { desc = "Go to previous quickfix item" })
 
+vim.keymap.set("n", "<leader><F12>", function()
+	print("working now")
+end, { desc = "Test thingy " })
+
 vim.keymap.set("n", "<leader>b", function()
 	require("usermodules.dotnetbuildstuff").build()
 end, { desc = "Build Stuff" })
@@ -37,9 +41,11 @@ M.map_lsp_keys = function(buffer)
 
 	opts.desc = "Show LSP definitions"
 	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+	keymap.set("n", "<F12>", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
 	opts.desc = "Show LSP implementations"
 	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+	keymap.set("n", "<leader><F12>", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
 	opts.desc = "Show LSP type definitions"
 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
