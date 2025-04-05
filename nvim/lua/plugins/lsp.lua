@@ -132,7 +132,6 @@ return {
 
 						for index, value in ipairs(ignoredFilePatterns) do
 							if stringUtil.matches(fileName, value) then
-								print("Skipping formatting for " .. fileName .. " index: " .. index)
 								return {}
 							end
 						end
