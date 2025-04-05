@@ -1,34 +1,6 @@
 local M = {}
 
-local function update_quickfix_list(fileName)
-	local file = io.open(fileName, "r")
-	if not file then
-		print("Could not open file " .. fileName)
-		return
-	end
-
-	local quickfix_list = {}
-
-	for line in file:lines() do
-		-- Only matches build errors
-		local filepath, lnum, col, text = line:match("^(.+)%((%d+),(%d+)%)%: error (.+)$")
-
-		if filepath and lnum and col and text then
-			text = text:match("^(.-)%s%[.+$")
-
-			table.insert(quickfix_list, {
-				filename = filepath,
-				lnum = tonumber(lnum),
-				col = tonumber(col),
-				text = text,
-			})
-		end
-	end
-
-	io.close(file)
-
-	vim.fn.setqflist(quickfix_list)
-end
+local quickfixUtil = require("usermodules.quickfixutil")
 
 M.build = function()
 	print("Building stuff")
@@ -43,7 +15,7 @@ M.build = function()
 				print("Build succeeded")
 			else
 				print("Build failed")
-				update_quickfix_list(logFileName)
+				quickfixUtil.update_quickfix_list(logFileName)
 				vim.cmd("copen")
 			end
 
