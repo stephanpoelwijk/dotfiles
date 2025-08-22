@@ -18,6 +18,12 @@
     "[csharp]": {
     "editor.codeLens": false
     },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "files.hotExit": "onExitAndWindowClose",
     "editor.suggestSelection": "first",
     "workbench.tree.indent": 20,
