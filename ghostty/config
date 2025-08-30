@@ -1,3 +1,4 @@
 # The syntax is "key = value". The whitespace around the
 # equals doesn't matter.
 theme = everforest 
+maximize = true 
