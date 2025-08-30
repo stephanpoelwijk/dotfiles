@@ -27,6 +27,7 @@ ln -s ~/repos/dotfiles/powershell ~/.config/powershell
 ln -s ~/repos/dotfiles/oh-my-posh ~/.config/oh-my-posh
 ln -s ~/repos/dotfiles/tmux ~/.config/tmux
 ln -s ~/repos/dotfiles/aerospace ~/.config/aerospace
+ln -s ~/repos/dotfiles/ghostty ~/.config/ghostty
 ln -s ~/repos/dotfiles/.prettierrc ~/.prettierrc
 ln -s ~/repos/dotfiles/.pylintrc ~/.pylintrc
 ```
