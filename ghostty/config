@@ -2,3 +2,4 @@
 # equals doesn't matter.
 theme = everforest 
 maximize = true 
+cursor-color=#ffffff
