@@ -1,6 +1,6 @@
 {
     "editor.fontFamily": "'CaskaydiaCove Nerd Font', Consolas, 'Courier New', monospace",
-    "workbench.colorTheme": "Night Owl (No Italics)",
+    "workbench.colorTheme": "Everforest Dark",
     "editor.formatOnSave": true,
     "window.zoomLevel": 0,
     "[json]": {
@@ -24,10 +24,17 @@
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[swift]": {
+        "editor.defaultFormatter": "swiftlang.swift-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "files.hotExit": "onExitAndWindowClose",
     "editor.suggestSelection": "first",
     "workbench.tree.indent": 20,
     "workbench.startupEditor": "newUntitledFile",
     "explorer.compactFolders": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "javascript.updateImportsOnFileMove.enabled": "always",
 }
