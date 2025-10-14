@@ -30,7 +30,7 @@ ln -s ~/repos/dotfiles/aerospace ~/.config/aerospace
 ln -s ~/repos/dotfiles/ghostty ~/.config/ghostty
 ln -s ~/repos/dotfiles/.prettierrc ~/.prettierrc
 ln -s ~/repos/dotfiles/.pylintrc ~/.pylintrc
-ln -s ~/repos/dotfiles/wezterm/.wezterm.lua ~/.wezterm.lua
+ln -s ~/repos/dotfiles/wezterm ~/.config/wezterm
 ```
 
 Link Obsidian vaults to a subfolder of to `~/vaults`.
