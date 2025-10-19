@@ -12,16 +12,17 @@ Below there is some additional setup that has not been scripted yet.
 Extra setting to Ctrl+. our way through constructor parameters and creating
 private fields with an underscore.
 
--   Go to `Tools -> Options -> Text Editor -> C# -> Code Style -> Naming`
--   Add `Naming style` called "Private underscore fields"
--   Add a new specification (with the '+')
-    -   Select `Private or internal field` as the specification
-    -   Select `Private underscore fields` for the required style
-    -   Set it as a `Suggestion`
+- Go to `Tools -> Options -> Text Editor -> C# -> Code Style -> Naming`
+- Add `Naming style` called "Private underscore fields"
+- Add a new specification (with the '+')
+    - Select `Private or internal field` as the specification
+    - Select `Private underscore fields` for the required style
+    - Set it as a `Suggestion`
 
 ## Symlink configuration
 
 ```
+ln -s ~/repos/dotfiles/yazi ~/.config/yazi
 ln -s ~/repos/dotfiles/nvim ~/.config/nvim
 ln -s ~/repos/dotfiles/powershell ~/.config/powershell
 ln -s ~/repos/dotfiles/oh-my-posh ~/.config/oh-my-posh
@@ -37,10 +38,10 @@ Link Obsidian vaults to a subfolder of to `~/vaults`.
 
 ## Dotnet stuff
 
--   Create a self-signed certificate with `dotnet dev-certs https --trust`
--   [HTTPS needs to be before HTTP in the launchsettings](https://github.com/dotnet/runtime/issues/27132)
-    for things to work
+- Create a self-signed certificate with `dotnet dev-certs https --trust`
+- [HTTPS needs to be before HTTP in the launchsettings](https://github.com/dotnet/runtime/issues/27132)
+  for things to work
 
 ## XCode Stuff
 
--   Header template macros go into `~/Library/Developer/Xcode/UserData`
+- Header template macros go into `~/Library/Developer/Xcode/UserData`
