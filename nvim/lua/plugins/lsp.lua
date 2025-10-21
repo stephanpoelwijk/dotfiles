@@ -107,7 +107,7 @@ return {
 			local conform = require("conform")
 			local stringUtil = require("usermodules.stringutil")
 
-			local ignoredFilePatterns = { "oil:", "\\.cs", "[Dd]ockerfile" }
+			local ignoredFilePatterns = { "oil:", "\\.cs", "[Dd]ockerfile", "\\.sh" }
 
 			vim.api.nvim_create_user_command("FormatDocument", function(args)
 				local range = nil
