@@ -1,1 +1,0 @@
-require("spoel.core.options")
