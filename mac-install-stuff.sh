@@ -1,3 +1,10 @@
+#!/bin/sh
+
+# This script contains a bunch of random install instructions. It serves
+# more as a reminder for me of what to install. There is no way to test
+# it because I only have one Mac :p
+
+
 brew install --formulae azure-cli \
     borders \
     ffmpeg \
@@ -30,9 +37,6 @@ brew install --formulae azure-cli \
     yarn \
     yazi
 
-
-
-
 brew install --casks aerospace \
     anaconda \
     devpod \
@@ -43,3 +47,6 @@ brew install --casks aerospace \
     obsidian \
     pinta \
     wezterm
+
+cp ./xcode/IDETemplateMacros.plist ~/Library/Developer/Xcode/UserData
+
