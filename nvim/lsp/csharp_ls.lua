@@ -8,8 +8,6 @@
 ---
 --- The preferred way to install csharp-ls is with `dotnet tool install --global csharp-ls`.
 
-local util = vim.lsp.util
-
 ---@type vim.lsp.Config
 return {
 	cmd = function(dispatchers, config)
