@@ -1,6 +1,17 @@
 vim.lsp.set_log_level("debug")
 
-vim.lsp.enable({ "cssls", "eslint", "html", "jsonls", "yamlls", "lua_ls", "csharp_ls", "ts_ls", "tailwindcss" })
+vim.lsp.enable({
+	"cssls",
+	"eslint",
+	"emmet_ls",
+	"html",
+	"jsonls",
+	"yamlls",
+	"lua_ls",
+	"csharp_ls",
+	"ts_ls",
+	"tailwindcss",
+})
 
 -- Map keys when LSP attaches
 vim.api.nvim_create_autocmd("LspAttach", {
