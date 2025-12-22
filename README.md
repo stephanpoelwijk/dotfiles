@@ -45,3 +45,12 @@ Link Obsidian vaults to a subfolder of to `~/vaults`.
 ## XCode Stuff
 
 - Header template macros go into `~/Library/Developer/Xcode/UserData`
+
+## Neovim
+
+Neovim LSP configurations come from the
+[LSP Config repo](https://github.com/neovim/nvim-lspconfig/tree/master/lsp). Not
+all configurations work out the box. Currently, the repo still requires
+`lspconfig.util` in some places. Also, if the `root_markers` are not present,
+all kinds of weird things happen (LSP clients not becoming active without any
+indication whatsoever is the most frustrating one).
